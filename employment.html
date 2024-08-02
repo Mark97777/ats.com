@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Webpage with Carousel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+  
+  
+  body {
+        background-color: #121212;
+        color: #ffffff;
+      }
+      .navbar, .footer {
+        background-color: #333333;
+        color: #ffffff;
+      }
+      .card, .carousel-item, .testimonial-item, .about-author, .content {
+        background-color: #424242;
+        color: #ffffff;
+      }
+      .navbar-brand img, .footer .social-links a {
+        filter: invert(1);
+      }
+	  .section-services {
+		 background-color: #333333;
+		color: #ffffff;
+	  }
+  
+  
+  
+    .carousel-item {
+      height: 400px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .carousel-item img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      transition: transform 0.3s ease-in-out;
+    }
+    .carousel-item img:hover {
+      transform: scale(0.95);
+    }
+	
+    .content {
+      padding: 2rem 0;
+	  border-radius: 12px;
+    }
+    .testimonials {
+      padding: 2rem 0;
+	  border-radius: 12px;
+    }
+    .testimonial-item {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .testimonial-item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .about-author {
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+	  border-radius: 12px;
+    }
+    .about-author img {
+      width: 300px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 2rem;
+    }
+    .footer {
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .footer .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    .footer .social-links a:hover {
+      color: #007bff;
+    }
+    .card {
+      margin-bottom: 1.5rem;
+	  border-radius: 12px;
+    }
+	.card .img-container {
+		background-color: brown;
+		width: 100%;
+		height: 10rem;
+	}
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #ffffff;
+      }
+      .navbar, .footer {
+        background-color: #333333;
+        color: #ffffff;
+      }
+      .card, .carousel-item, .testimonial-item, .about-author, .content {
+        background-color: #424242;
+        color: #ffffff;
+      }
+      .navbar-brand img, .footer .social-links a {
+        filter: invert(1);
+      }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top p-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://via.placeholder.com/30" alt="Logo" class="d-inline-block align-text-top">
+      ABBY's Transportation
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="employment.html">Employment</a>
+        </li>
+        <li style="display: none;" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<br />
+
+<div class="container content">
+	<div class = "container">
+	  <h2 class="text-center">Application Forms</h2>
+	  <div class="row justify-content-center">
+		<div class="col-md-8">
+		  <form>
+			<div class="mb-3">
+			  <label for="name" class="form-label">Name</label>
+			  <input type="text" class="form-control" id="name" required>
+			</div>
+			<div class="mb-3">
+			  <label for="email" class="form-label">Email address</label>
+			  <input type="email" class="form-control" id="email" required>
+			</div>
+			<div class="mb-3">
+			  <label for="email" class="form-label">Location</label>
+			  <input type="text" class="form-control" id="email" required>
+			</div>
+			<div class="mb-3">
+			  <label for="email" class="form-label">Certifications</label>
+			  <input type="text" class="form-control" id="email" required>
+			</div>
+			<div class="mb-3">
+			  <label for="message" class="form-label">Your experiences</label>
+			  <textarea class="form-control" id="message" rows="3" required></textarea>
+			</div>
+			<button type="submit" class="btn btn-dark">Apply</button>
+		  </form>
+		</div>
+	  </div>
+	</div>
+</div>
+
+<br />
+
+
+<div style = "width: 100%;" class="container testimonials">
+  <h2 class="text-center">Testimonials</h2>
+  <div style = "width: 100%;" class="row">
+		<div class="col-md-4 testimonial-item">
+		  <img src="https://via.placeholder.com/100" alt="Client 1">
+		  <h5>Client 1</h5>
+		  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+		</div>
+		<div class="container col-md-4 testimonial-item">
+		  <img src="https://via.placeholder.com/100" alt="Client 2">
+		  <h5>Client 2</h5>
+		  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+		</div>
+		<div class="container col-md-4 testimonial-item">
+		  <img src="https://via.placeholder.com/100" alt="Client 3">
+		  <h5>Client 3</h5>
+		  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+		</div>
+  </div>
+</div>
+
+<footer class="footer p-5">
+  <div class="container">
+    <p>&copy; 2024 ABBY's Transportation. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">Facebook</a> |
+      <a href="#">Twitter</a> |
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+  // Enable touch and drag support for the carousel
+  const carousel = document.querySelector('.carousel-inner');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+    carousel.classList.add('active');
+  });
+
+  carousel.addEventListener('mouseleave', () => {
+    isDown = false;
+    carousel.classList.remove('active');
+  });
+
+  carousel.addEventListener('mouseup', () => {
+    isDown = false;
+    carousel.classList.remove('active');
+  });
+
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 2; //scroll-fast
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch support
+  carousel.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+    carousel.classList.add('active');
+  });
+
+  carousel.addEventListener('touchend', () => {
+    isDown = false;
+    carousel.classList.remove('active');
+  });
+
+  carousel.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 2; //scroll-fast
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+</script>
+</body>
+</html>

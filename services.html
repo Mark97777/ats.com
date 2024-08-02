@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Webpage with Carousel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <style>
+  
+  
+  
+  body {
+        background-color: #121212;
+        color: #ffffff;
+      }
+      .navbar, .footer {
+        background-color: #333333;
+        color: #ffffff;
+      }
+      .card, .carousel-item, .testimonial-item, .about-author, .content {
+        background-color: #424242;
+        color: #ffffff;
+      }
+      .navbar-brand img, .footer .social-links a {
+        filter: invert(1);
+      }
+	  .section-services {
+		 background-color: #333333;
+		color: #ffffff;
+	  }
+  
+  
+  
+  
+    .carousel-item {
+      height: 400px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .carousel-item img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+      transition: transform 0.3s ease-in-out;
+    }
+    .carousel-item img:hover {
+      transform: scale(0.95);
+    }
+	
+    .content {
+      padding: 2rem 0;
+	  border-radius: 12px;
+    }
+    .testimonials {
+      padding: 2rem 0;
+	  border-radius: 12px;
+    }
+    .testimonial-item {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .testimonial-item img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .about-author {
+      display: flex;
+      align-items: center;
+      margin-top: 2rem;
+	  border-radius: 12px;
+    }
+    .about-author img {
+      width: 300px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 2rem;
+    }
+    .footer {
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .footer .social-links a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+    .footer .social-links a:hover {
+      color: #007bff;
+    }
+    .card {
+      margin-bottom: 1.5rem;
+	  border-radius: 12px;
+    }
+	.card .img-container {
+		background-color: brown;
+		width: 100%;
+		height: 10rem;
+	}
+	.section-services {
+		 padding: 1rem;
+		 border-radius: 12px;
+	  }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #ffffff;
+      }
+      .navbar, .footer {
+        background-color: #333333;
+        color: #ffffff;
+      }
+      .card, .carousel-item, .testimonial-item, .about-author, .content {
+        background-color: #424242;
+        color: #ffffff;
+      }
+      .navbar-brand img, .footer .social-links a {
+        filter: invert(1);
+      }
+	  .section-services {
+		 background-color: #333333;
+		color: #ffffff;
+	  }
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	.access-container {
+			position: fixed;
+			top: 20%;
+			left: 95%;
+			padding: 0.1rem;
+			background-color: #333;
+			z-index: 10;
+		}
+		.access-container .ico-container {
+			background-color: white;
+			display: flex;
+			flex-direction: column;
+		}
+		.access-container .ico-container span {
+			margin: 0.5rem;
+		}
+		.access-container .ico-container .ico-bg {
+			transition: 400ms;
+			display: flex;
+			align-items: center;
+			background-color: #333;
+			margin: 0.5rem;
+			border-radius: 12px;	
+		}
+		.access-container .ico-container .ico-bg:hover {
+			transform: translateY(0.3rem);
+			display: flex;
+			align-items: center;
+			background-color: #333;
+			margin: 0.5rem;
+			border-radius: 12px;	
+		}
+		.access-container .ico-container .ico-bg span {
+			font-size: 1.3rem;
+			margin: 0.5rem;
+			color: white;
+		}
+		.access-container .ico-container .ico-bg span:active {
+			display: flex;
+			align-items: center;
+			background-color: #333;
+			margin: 0.5rem;
+			border-radius: 12px;
+			color: crimson;
+		}
+	
+	
+@media (max-width: 800px) {
+  .access-container {
+			position: fixed;
+			top: 20%;
+			left: 90%;
+			padding: 0.1rem;
+			background-color: #333;
+			z-index: 10;
+		}
+  }
+
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top p-4">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://via.placeholder.com/30" alt="Logo" class="d-inline-block align-text-top">
+      <strong>ABBY's Transportation</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="employment.html">Employment</a>
+        </li>
+        <li style="display: none;" class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<br />
+
+<div style = "width: 100%;" class="container content">
+	<div class = "container">
+	  <h2 class="text-center">Our Services</h2>
+	  <div class="row">
+		<div class="col-md-4">
+		  <div class="card">
+			<div class = "img-container">
+				<img src="images/ATS12.jpg" class="card-img-top" width = "100%" height = "100%" alt="Service 1">
+			</div>
+			<div class="card-body">
+			  <h5 class="card-title">Delivery</h5>
+			  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			  <a role = "button" class = "btn btn-sm btn-dark" href "" >Visit</a>
+			</div>
+		  </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="card">
+			<div class = "img-container">
+				<img src="images/long-distance-medical-transport.jpg" width = "100%" height = "100%" class="card-img-top" alt="Service 2">
+			</div>
+			<div class="card-body">
+			  <h5 class="card-title">Medical transportation</h5>
+			  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			  <a role = "button" class = "btn btn-sm btn-dark" href "" >Visit</a>
+			</div>
+		  </div>
+		</div>
+		<div class="col-md-4">
+		  <div class="card">
+		    <div class = "img-container">
+				<img src="images/ATS6.webp" width = "100%" height = "100%" class="card-img-top" alt="Service 3">
+			</div>
+			<div class="card-body">
+			  <h5 class="card-title">Pickup</h5>
+			  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			  <a role = "button" class = "btn btn-sm btn-dark" href "" >Visit</a>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+</div>
+
+<br />
+
+
+ <section class="section-services container">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="">
+              <h2 class="title-a">Service Area</h2>
+			  <p class="content-c">ABBY's transportation services deliver's it services in these areas in New Jersey.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+	  <div class="row">
+        <div class="col-md-3">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<img src = "images/map-pointer.jpg" width = "100%" height = "100%">
+				</div>
+				<div style = "display: inline" class = "col-sm-10">
+					<h5 class = "">Hunterdon</h5></span>
+				</div>
+			</div>
+        </div>
+		<div class="col-md-3">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<img src = "images/map-pointer.jpg" width = "100%" height = "100%">
+				</div>
+				<div class = "col-sm-10">
+					<h5 class = "">Middleton</h5>
+				</div>
+			</div>
+        </div>
+		<div class="col-md-3">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<img src = "images/map-pointer.jpg" width = "100%" height = "100%">
+				</div>
+				<div class = "col-sm-10">
+					<h5 class = "">Mercer</h5>
+				</div>
+			</div>
+        </div>
+		<div class="col-md-3">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<img src = "images/map-pointer.jpg" width = "100%" height = "100%">
+				</div>
+				<div class = "col-sm-10">
+					<h5 class = "">Monmouth</h5>
+				</div>
+			</div>
+        </div>
+		<div class="col-md-3">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<img src = "images/map-pointer.jpg" width = "100%" height = "100%">
+				</div>
+				<div class = "col-sm-10">
+					<h5 class = "">Burlington</h5>
+				</div>
+			</div>
+        </div>
+		<div class="col-md-3">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<img src = "images/map-pointer.jpg" width = "100%" height = "100%">
+				</div>
+				<div class = "col-sm-10">
+					<h5 class = "">Camden</h5>
+				</div>
+			</div>
+        </div>
+		<div class="col-md-3">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<img src = "images/map-pointer.jpg" width = "100%" height = "100%">
+				</div>
+				<div class = "col-sm-10">
+					<h5 class = "">Gloucester</h5>
+				</div>
+			</div>
+        </div>
+		<div class="col-md-3">
+			<div class = "row">
+				<div class = "col-sm-2">
+					<img src = "images/map-pointer.jpg" width = "100%" height = "100%">
+				</div>
+				<div class = "col-sm-10">
+					<h5 class = "">Somerset</h5>
+				</div>
+			</div>
+        </div>
+      </div>
+  </div>
+  </section>
+
+
+<br />
+
+<div style = "width: 100%;" class="container testimonials">
+  <h2 class="text-center">Testimonials</h2>
+  <div style = "width: 100%;" class="row">
+		<div class="col-md-4 testimonial-item">
+		  <img src="https://via.placeholder.com/100" alt="Client 1">
+		  <h5>Client 1</h5>
+		  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+		</div>
+		<div class="container col-md-4 testimonial-item">
+		  <img src="https://via.placeholder.com/100" alt="Client 2">
+		  <h5>Client 2</h5>
+		  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+		</div>
+		<div class="container col-md-4 testimonial-item">
+		  <img src="https://via.placeholder.com/100" alt="Client 3">
+		  <h5>Client 3</h5>
+		  <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+		</div>
+  </div>
+</div>
+
+<br />
+
+<div class="container content">
+  <h2 class="text-center">About the Owner</h2>
+  <div class="about-author">
+    <img src="images/NjeriSkeete.jpg" alt="Mrs.Njeri Watson">
+    <div>
+      <h3>Mrs.Njeri Watson</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa.</p>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="container content">
+	<div class = "container">
+	  <h2 class="text-center">Contact Us</h2>
+	  <div class="row justify-content-center">
+		<div class="col-md-8">
+		  <form>
+			<div class="mb-3">
+			  <label for="name" class="form-label">Name</label>
+			  <input type="text" class="form-control" id="name" required>
+			</div>
+			<div class="mb-3">
+			  <label for="email" class="form-label">Email address</label>
+			  <input type="email" class="form-control" id="email" required>
+			</div>
+			<div class="mb-3">
+			  <label for="message" class="form-label">Message</label>
+			  <textarea class="form-control" id="message" rows="3" required></textarea>
+			</div>
+			<button type="submit" class="btn btn-dark">Submit</button>
+		  </form>
+		</div>
+	  </div>
+	</div>
+</div>
+
+<br />
+
+<footer class="footer p-5">
+  <div class="container">
+    <p>&copy; 2024 ABBY's Transportation. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#">Facebook</a> |
+      <a href="#">Twitter</a> |
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+
+<section class = "access-container">
+		<div class = "ico-container">
+			<div class = "ico-bg">
+				<span class = "fa fa-whatsapp"></span>
+			</div>
+			<div class = "ico-bg">
+				<span class = "fa fa-facebook"></span>
+			</div>
+			<div class = "ico-bg">
+				<span class = "fa fa-youtube"></span>
+			</div>
+			<div class = "ico-bg">
+				<span class = "fa fa-superpowers"></span>
+			</div>
+			<div class = "ico-bg">
+				<span class = "fa fa-odnoklassniki"></span>
+			</div>
+		</div>
+	</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+  // Enable touch and drag support for the carousel
+  const carousel = document.querySelector('.carousel-inner');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+    carousel.classList.add('active');
+  });
+
+  carousel.addEventListener('mouseleave', () => {
+    isDown = false;
+    carousel.classList.remove('active');
+  });
+
+  carousel.addEventListener('mouseup', () => {
+    isDown = false;
+    carousel.classList.remove('active');
+  });
+
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 2; //scroll-fast
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch support
+  carousel.addEventListener('touchstart', (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+    carousel.classList.add('active');
+  });
+
+  carousel.addEventListener('touchend', () => {
+    isDown = false;
+    carousel.classList.remove('active');
+  });
+
+  carousel.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 2; //scroll-fast
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+</script>
+</body>
+</html>
